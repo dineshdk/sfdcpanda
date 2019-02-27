@@ -1,0 +1,8 @@
+<aura:component implements="force:appHostable,flexipage:availableForAllPageTypes,flexipage:availableForRecordHome,force:hasRecordId,forceCommunity:availableForAllPageTypes,force:lightningQuickAction" access="global" >
+    <aura:attribute name="msgDisplay" type="String" default=""/>
+    <aura:method name="auraMethod" action="{!c.doAction}" access="global"> 
+        <aura:attribute name="msg" type="String" default=""/>
+    </aura:method>
+        <div aura:id="msgDiv">
+            {!v.msgDisplay}</div>
+</aura:component>

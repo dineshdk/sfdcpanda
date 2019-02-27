@@ -1,0 +1,30 @@
+<apex:page showHeader="false" standardStylesheets="false">
+    <apex:includeScript value="/xdomain/xdomain.js" />
+    <apex:includeScript value="/soap/ajax/42.0/connection.js" />
+    <apex:includeScript value="/support/console/42.0/integration.js" />
+    <apex:includeScript value="/lightning/lightning.out.js" /> 
+    <apex:includeLightning />
+    <div id="lightning" />
+    <apex:slds />
+    <script>
+    var cmp;
+    
+    $Lightning.use("c:LightningOutApp", function () {
+        $Lightning.createComponent("c:LightningOutCmp", {}, 'lightning', 
+                                   function (component) {
+                                       cmp = component;
+                                   });
+    }); 
+    
+    
+    function auraMethodCall(message){
+        cmp.auraMethod(message);
+    }
+    
+    </script>
+    <div class="slds-scope">
+    <apex:form styleClass="slds-m-left--large slds-m-top--large">
+        <apex:commandButton value="click me kanka" styleClass="slds-button slds-button_brand" onclick="auraMethodCall('calling lightning controller method from visualforce page button click');return false;"/>
+    </apex:form>
+    </div>
+</apex:page>
